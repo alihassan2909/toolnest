@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ToolNest - Free online word counter and character counter for students, writers and bloggers.">
+    <meta name="keywords" content="word counter, character counter, online tools, free tools, text counter">
+    <meta name="author" content="Ali Hassan">
+    <title>ToolNest - Free Word & Character Counter Online</title>
+
+    <!-- AdSense verification / script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1561314385839985"
+        crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #1a73e8;
+        }
+
+        textarea {
+            width: 90%;
+            max-width: 700px;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #1a73e8;
+            border-radius: 5px;
+            margin-top: 20px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+            resize: vertical;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+
+        button:hover {
+            background-color: #0c50b3;
+        }
+
+        #result, #charResult {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            textarea {
+                width: 95%;
+            }
+            button {
+                width: 90%;
+                margin: 5px 0;
+            }
+        }
+
+        /* Ad placeholder style */
+        #ad1 {
+            margin: 30px auto;
+            width: 300px;
+            height: 250px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Welcome to ToolNest</h1>
+<p>Free online tools for daily use</p>
+
+<textarea id="textInput" rows="10" cols="50" placeholder="Type or paste your text here..."></textarea>
+<br>
+
+<button onclick="countWords()">Count Words</button>
+<button onclick="countCharacters()">Count Characters</button>
+<button onclick="copyText()">Copy Text</button>
+
+<p id="result"></p>
+<p id="charResult"></p>
+
+<!-- AdSense Ad Unit -->
+<div id="ad1">
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-1561314385839985"
+        data-ad-slot="XXXXXXXXXX"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+</div>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<script>
+function countWords() {
+    let text = document.getElementById("textInput").value;
+    let words = text.trim().split(/\s+/).length;
+    if(text.trim() === "") {
+        words = 0;
+    }
+    document.getElementById("result").innerHTML = "Word Count: " + words;
+}
+
+function countCharacters() {
+    let text = document.getElementById("textInput").value;
+    let chars = text.length;
+    document.getElementById("charResult").innerHTML = "Character Count: " + chars;
+}
+
+function copyText() {
+    let text = document.getElementById("textInput");
+    text.select();
+    text.setSelectionRange(0, 99999); // mobile support
+    document.execCommand("copy");
+    alert("Text copied to clipboard!");
+}
+</script>
+
+</body>
+</html>
